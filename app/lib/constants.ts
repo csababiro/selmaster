@@ -9,7 +9,6 @@ export const NAVIGATION_ITEMS = [
   { label: 'Produse', href: '/produse' },
   { label: 'Solicită ofertă', href: '/contact' },
   { label: 'Transport', href: '/transport' },
-  { label: 'Contact', href: '/contact' },
 ];
 
 export const FOOTER_LINKS = {

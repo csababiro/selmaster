@@ -53,7 +53,6 @@ export function Header() {
                 { label: 'Produse', href: '/produse' },
                 { label: 'Solicită ofertă', href: '/contact' },
                 { label: 'Transport', href: '/transport' },
-                { label: 'Contact', href: '/contact' },
               ].map((item) => (
                 <Link
                   key={item.href}

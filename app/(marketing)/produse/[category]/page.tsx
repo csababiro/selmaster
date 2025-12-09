@@ -3,11 +3,18 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { getCategoryById, getProductsByCategory } from '@/lib/content/products';
+import { getCategoryById, getProductsByCategory, productCategories } from '@/lib/content/products';
 import { SITE_NAME } from '@/lib/constants';
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
+}
+
+// Required for static export - generate all category paths at build time
+export function generateStaticParams() {
+  return productCategories.map((category) => ({
+    category: category.id,
+  }));
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {

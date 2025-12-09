@@ -9,9 +9,9 @@ export function Navigation() {
 
   return (
     <nav className="hidden md:flex space-x-6">
-      {NAVIGATION_ITEMS.map((item) => (
+      {NAVIGATION_ITEMS.map((item, index) => (
         <Link
-          key={item.href}
+          key={`${item.href}-${index}`}
           href={item.href}
           className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
             pathname === item.href
