@@ -2,11 +2,18 @@ import { Resend } from 'resend';
 import { companyInfo } from '../content/company';
 import { ContactFormData, QuoteFormData } from './validation';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    return null;
+  }
+  return new Resend(apiKey);
+}
 
 export async function sendContactEmail(data: ContactFormData): Promise<{ success: boolean; message: string }> {
   try {
-    if (!process.env.RESEND_API_KEY) {
+    const resend = getResend();
+    if (!resend) {
       console.error('RESEND_API_KEY is not set');
       return {
         success: false,
@@ -43,7 +50,8 @@ export async function sendContactEmail(data: ContactFormData): Promise<{ success
 
 export async function sendQuoteEmail(data: QuoteFormData): Promise<{ success: boolean; message: string }> {
   try {
-    if (!process.env.RESEND_API_KEY) {
+    const resend = getResend();
+    if (!resend) {
       console.error('RESEND_API_KEY is not set');
       return {
         success: false,
