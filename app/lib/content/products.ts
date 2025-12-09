@@ -6,7 +6,7 @@ export const products: Product[] = [
     name: 'Cherestea Rășinoase',
     category: 'cheresta',
     description: 'Cherestea din speciile de rășinoase molid și brad, prelucrată prin linii de tăiere de ultima generație.',
-    images: ['/images/cheresta-rasinoase.jpg'],
+    images: ['https://www.selmaster.ro/uploaded_files/ggg(2).png'],
     specifications: {
       'Specie': 'Molid și Brad',
       'Calitate': 'Premium',
@@ -18,7 +18,7 @@ export const products: Product[] = [
     name: 'Lambriuri Rășinoase',
     category: 'lambriuri',
     description: 'Lambriuri de înaltă calitate din rășinoase.',
-    images: ['/images/lambriuri-rasinoase.jpg'],
+    images: ['https://www.selmaster.ro/uploaded_files/ggg(2).png'],
     specifications: {
       'Material': 'Rășinoase',
       'Calitate': 'Premium'
@@ -29,7 +29,7 @@ export const products: Product[] = [
     name: 'Brichete din Fag RUF',
     category: 'brichete',
     description: 'Brichete din fag RUF de înaltă calitate.',
-    images: ['/images/brichete-fag.jpg'],
+    images: ['https://www.selmaster.ro/uploaded_files/ggg(2).png'],
     specifications: {
       'Material': 'Fag',
       'Tip': 'RUF'
@@ -40,7 +40,7 @@ export const products: Product[] = [
     name: 'Peleti Rășinoase A1 EnPlus',
     category: 'peleti',
     description: 'Peleti rășinoase de calitate A1 EnPlus.',
-    images: ['/images/peleti-rasinoase.jpg'],
+    images: ['https://www.selmaster.ro/uploaded_files/ggg(2).png'],
     specifications: {
       'Calitate': 'A1 EnPlus',
       'Material': 'Rășinoase'

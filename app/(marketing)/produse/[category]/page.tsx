@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { getCategoryById, getProductsByCategory, productCategories } from '@/lib/content/products';
@@ -56,6 +57,18 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product) => (
             <Card key={product.id} title={product.name} description={product.description}>
+              {product.images && product.images.length > 0 && (
+                <div className="mb-4 rounded-lg overflow-hidden">
+                  <Image
+                    src={product.images[0]}
+                    alt={product.name}
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover"
+                    unoptimized
+                  />
+                </div>
+              )}
               {product.specifications && (
                 <div className="mt-4 space-y-2">
                   <h4 className="font-semibold text-gray-900 text-sm">Specificații:</h4>

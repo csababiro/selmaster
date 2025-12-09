@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { productCategories } from '@/lib/content/products';
@@ -15,15 +16,30 @@ export function ProductsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {productCategories.map((category) => (
-            <Card key={category.id} title={category.name} description={category.description}>
-              <Link href={`/produse/${category.id}`}>
-                <Button variant="outline" className="w-full mt-4">
-                  Vezi Produse
-                </Button>
-              </Link>
-            </Card>
-          ))}
+          {productCategories.map((category) => {
+            const firstProduct = category.products[0];
+            return (
+              <Card key={category.id} title={category.name} description={category.description}>
+                {firstProduct?.images && firstProduct.images.length > 0 && (
+                  <div className="mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src={firstProduct.images[0]}
+                      alt={category.name}
+                      width={300}
+                      height={200}
+                      className="w-full h-40 object-cover"
+                      unoptimized
+                    />
+                  </div>
+                )}
+                <Link href={`/produse/${category.id}`}>
+                  <Button variant="outline" className="w-full mt-4">
+                    Vezi Produse
+                  </Button>
+                </Link>
+              </Card>
+            );
+          })}
         </div>
 
         <div className="text-center">
